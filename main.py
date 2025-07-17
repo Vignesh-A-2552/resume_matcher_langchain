@@ -1,9 +1,9 @@
-import logging
+import loguru
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.router import router
 from app.core.config import settings
+from app.api.router import match_api, upload_api
 
 # Initialize FastAPI app
 app = FastAPI()
@@ -16,11 +16,12 @@ app.add_middleware(
 )
 
 # Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+loguru.logger.add("file.log", rotation="1 MB")
+logger = loguru.logger
 
 # Include API routes
-app.include_router(router)
+app.include_router(upload_api, prefix="/upload")
+app.include_router(match_api, prefix="/match")
 
 
 # Run the app

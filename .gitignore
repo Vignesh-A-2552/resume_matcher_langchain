@@ -1,3 +1,5 @@
 agents-venv/
 .env
 backup/
+
+__pycache__

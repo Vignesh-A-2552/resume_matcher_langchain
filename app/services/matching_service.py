@@ -1,11 +1,11 @@
-import logging
+import loguru
 from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from app.core.config import settings
 from app.prompt.prompt import match_template, question_template
 
-logger = logging.getLogger(__name__)
+logger = loguru.logger
 
 
 class MatchingService:

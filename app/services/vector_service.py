@@ -1,10 +1,10 @@
 import os
-import logging
+import loguru
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
 from app.core.config import settings
 
-logger = logging.getLogger(__name__)
+logger = loguru.logger
 
 
 class VectorService:
