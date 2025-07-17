@@ -3,7 +3,7 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from app.core.config import settings
-from prompt import match_template, question_template
+from app.prompt.prompt import match_template, question_template
 
 logger = logging.getLogger(__name__)
 
